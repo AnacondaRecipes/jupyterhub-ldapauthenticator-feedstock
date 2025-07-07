@@ -1,29 +1,30 @@
 {% set name = "jupyterhub-ldapauthenticator" %}
-{% set version = "1.3.2" %}
-{% set sha256 = "758081bbdb28b26313bb18c9d8aa2b8fcdc9162e4d3ab196c626567e64f1ab8b" %}
+{% set version = "2.0.2" %}
+{% set sha256 = "c08cecd9bd996ab523c810d45204bb4a5eaac7adae38d3ef05eebc58fffc7a87" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jupyterhub_ldapauthenticator-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: true  # [py<39]
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
     - setuptools
   run:
-    - python >=3.5
-    - jupyterhub
-    - ldap3
+    - python
+    - jupyterhub >=4.1.6
+    - ldap3 >=2.9.1
     - tornado
     - traitlets
 
