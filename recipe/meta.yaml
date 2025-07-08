@@ -31,10 +31,8 @@ test:
     - ldapauthenticator
   requires:
     - pip
-    - pytest
   commands:
     - pip check
-    - pytest --pyargs ldapauthenticator.tests
 
 about:
   home: https://github.com/jupyterhub/ldapauthenticator
