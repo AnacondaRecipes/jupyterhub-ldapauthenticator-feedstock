@@ -19,6 +19,7 @@ requirements:
     - python
     - pip
     - setuptools
+    - wheel
   run:
     - python
     - jupyterhub >=4.1.6
@@ -30,8 +31,10 @@ test:
     - ldapauthenticator
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest --pyargs ldapauthenticator.tests
 
 about:
   home: https://github.com/jupyterhub/ldapauthenticator
@@ -41,7 +44,7 @@ about:
   summary: LDAP Authenticator for JupyterHub
   description: LDAP Authenticator for JupyterHub
   dev_url: https://github.com/jupyterhub/ldapauthenticator
-  doc_url: https://github.com/jupyterhub/ldapauthenticator
+  doc_url: https://github.com/jupyterhub/ldapauthenticator/blob/main/README.md
 
 extra:
   recipe-maintainers:
